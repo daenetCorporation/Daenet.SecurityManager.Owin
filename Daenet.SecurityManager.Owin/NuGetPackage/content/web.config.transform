@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    </startup>
+  <system.diagnostics>
+    <sources>
+      <source name="SecManAuthorizationMiddleware" switchName="sourceSwitch" switchType="System.Diagnostics.SourceSwitch">
+        <listeners> 
+          <add name="console"
+            type="System.Diagnostics.ConsoleTraceListener">
+          </add>
+          <!--<add name="console"/>-->
+          <!--<remove name="Default"/>-->
+        </listeners>
+      </source>
+    </sources>
+    <switches>
+      <add name="sourceSwitch" value="All"/>
+    </switches>
+
+  </system.diagnostics>
+  
+
+ 
+
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_ISecurityManagerService" closeTimeout="00:01:00" openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferSize="65536" maxBufferPoolSize="524288" maxReceivedMessageSize="65536" messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered" useDefaultWebProxy="true">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384" maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="TransportCredentialOnly">
+            <transport clientCredentialType="Windows" proxyCredentialType="None" realm="" />
+            <message clientCredentialType="UserName" algorithmSuite="Default" />
+          </security>
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <!-- change Service URL -->
+      <endpoint address="http://localhost/SecurityManagerService/SecurityManagerService.svc" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ISecurityManagerService" contract="WebService.ISecurityManagerService" name="BasicHttpBinding_ISecurityManagerService" />
+    </client>
+  </system.serviceModel>
+</configuration>

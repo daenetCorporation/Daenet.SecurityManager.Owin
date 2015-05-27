@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>DaenetSecurityManagerOwin</id>
+    <version>1.0.9</version>
+    <title>DaenetSecurityManager Authorization for Owin</title>
+    <authors>daenet</authors>
+    <owners>daenet</owners>
+    <licenseUrl>http://www.nunit.org/nuget/nunit3-license.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      This package provides an OWIN middleware for user powerful authorization based on daenet’s Security Manager. By using of SecManAuthorizationMiddleware you can maintain authorization rights for applications, users, groups and their roles.
+      SecManAuthorizationMiddleware runs after user has been successfully authenticated. It connects to Security Manager Service to get roles for the user and attach them as role claims to the existing set of claims.
+    </description>
+    <summary>This package provides an OWIN middleware for user powerful authorization</summary>
+    <copyright>daenet corporation</copyright>
+    <language>en-US</language>
+    <tags>AAD, authorization, middleware, owin, asp.net, daenet, ASP.NET.MVC</tags>
+    
+    <dependencies>
+      <dependency id="Microsoft.Owin" version="3.0.1" />
+      <dependency id="Microsoft.AspNet.WebApi" version="5.2.3" />
+   
+    </dependencies>
+    
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="NuGetPackage\content\Startup.SecManAuth.cs.pp" target="content\SecMan\Startup.SecManAuth.cs.pp" />
+    <file src="content\SecMan\MockRoleProvider.cs.pp" target="content\SecMan\MockRoleProvider.cs.pp" />
+    <file src="content\SecMan\MockTokenProvider.cs.pp" target="content\SecMan\MockTokenProvider.cs.pp" />
+    <file src="content\SecMan\Startup.cs.pp" target="content\SecMan\Startup.cs.pp" />
+    <file src="content\readme.txt" target="content\readme.txt" />
+    <file src="NuGetPackage\content\web.config.transform" target="content\web.config.transform" />
+    <file src="Assemblies\Daenet.SecurityManager.Client\Daenet.SecurityManager.Client.dll" target="lib\net45\Assemblies\Daenet.SecurityManager.Client.dll" />
+    <file src="Assemblies\Daenet.SecurityManager.Client\Daenet.SecurityManager.Client.pdb" target="lib\net45\Assemblies\Daenet.SecurityManager.Client.pdb" />
+    <file src="Assemblies\Daenet.SecurityManager.Client\Daenet.SecurityManager.Client.XML" target="lib\net45\Assemblies\Daenet.SecurityManager.Client.XML" />
+    <file src="bin\Debug\Daenet.SecurityManager.Owin.dll" target="lib\net45\Daenet.SecurityManager.Owin.dll" />
+  </files>
+</package>
